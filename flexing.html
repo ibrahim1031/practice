@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beautiful and Responsive Page</title>
+<style>
+    body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+}
+
+main.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  grid-auto-rows: auto;
+  grid-gap: 20px; /* Gap between the columns */
+  padding: 20px;
+}
+
+section.main-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+section.sidebar {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  main.grid-container {
+    grid-template-columns: 1fr; /* One column for smaller screens */
+  }
+}
+
+</style>
+</head>
+<body>
+  <header>
+    <h1>My Beautiful Page</h1>
+  </header>
+  
+  <main class="grid-container">
+    <section class="main-content">
+      <h2>Welcome to My Page!</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod eu purus id hendrerit.</p>
+      <p>Proin facilisis semper nisi, quis elementum velit sagittis a. Vestibulum a purus at dui euismod accumsan sit amet eget libero.</p>
+    </section>
+    
+    <section class="sidebar">
+      <h3>Side Menu</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; 2023 My Beautiful Page. All rights reserved.</p>
+  </footer>
+</body>
+</html>

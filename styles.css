@@ -1,0 +1,79 @@
+/* CSS Reset */
+body, h1, h2, h3, h4, h5, h6, p, ul, li, img {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+.logo img {
+  max-width: 150px;
+}
+
+nav {
+  background-color: #444;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+}
+
+nav li {
+  padding: 5px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+main {
+  padding: 20px;
+}
+
+.promo-banner img {
+  max-width: 100%;
+}
+
+.content-columns {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex: 1 0 30%;
+}
+
+.column img {
+  max-width: 100%;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-left img {
+  max-width: 50px;
+}

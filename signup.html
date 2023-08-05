@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .btn-signup {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .btn-signup:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required minlength="3" maxlength="12">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required minlength="3" maxlength="12">
+            </div>
+            <button type="submit" class="btn-signup">Sign Up</button>
+            <fieldset id="size">
+                
+                <label ><input type="radio" value="2" name="size"> 2 Person</label>
+                <label >  <input type="radio" value="4" name="size" checked>4 Person</label>
+                <label >
+              
+                    <input type="radio" value="6" name="size">6 Person</label>
+
+
+            </fieldset>
+            <fieldset id="location">
+
+            </fieldset>
+            <button type="submit">Book the table</button>
+            <div>
+                <label for="booking_people">Number of People</label>
+                <input type="range" name="booking_people" id="booking_people" min="1" max="10" oninput="this.nextElementSibling.value = this.value">
+                <output>4</output>
+
+            </div>
+        </form>
+    </div>
+    <audio src="output_audio.mp3" autoplay></audio>
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+        // Get the canvas element and its context
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Set canvas size
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Ball properties
+        const ballRadius = 25;
+        let ballX = canvas.width / 2;
+        let ballY = canvas.height / 2;
+        let ballSpeedX = 5; // Horizontal speed
+        let ballSpeedY = 7; // Vertical speed
+        const gravity = 0.2;
+        const bounceFactor = 0.8; // The percentage of energy retained on each bounce
+
+        function drawBall() {
+            ctx.beginPath();
+            ctx.arc(ballX, ballY, ballRadius, 0, Math.PI * 2);
+            ctx.fillStyle = 'blue';
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function updateBallPosition() {
+            // Apply gravity to the vertical speed
+            ballSpeedY += gravity;
+
+            // Update ball position
+            ballX += ballSpeedX;
+            ballY += ballSpeedY;
+
+            // Check collision with the canvas edges
+            if (ballX + ballRadius > canvas.width || ballX - ballRadius < 0) {
+                ballSpeedX = -ballSpeedX; // Reverse horizontal direction
+            }
+
+            if (ballY + ballRadius > canvas.height) {
+                ballY = canvas.height - ballRadius;
+                ballSpeedY = -ballSpeedY * bounceFactor; // Reverse vertical direction with reduced energy
+            }
+        }
+
+        function draw() {
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw the ball
+            drawBall();
+
+            // Update ball position
+            updateBallPosition();
+
+            // Request the next animation frame
+            requestAnimationFrame(draw);
+        }
+
+        // Start the animation
+        draw();
+    </script>
+</body>
+</html>
